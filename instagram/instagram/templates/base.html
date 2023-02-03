@@ -1,0 +1,119 @@
+{% load static %}
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="{% static 'css/bulma.min.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+  </head>
+
+  <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://bulma.io">
+      <img src="{% static 'img/instagram_black.png' %}" width="64" height="64">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a href="{% url 'index' %}"class="navbar-item">
+        <i class="material-icons">home</i>
+        Home
+      </a>
+
+      <a class="navbar-item">
+        <i class="material-icons">explore</i>
+        Explore
+      </a>
+
+       <a class="navbar-item">
+        <i class="material-icons">notifications</i>
+        Notifications
+      </a>
+
+      <a class="navbar-item">
+        <i class="material-icons">inbox</i>
+        Inbox
+      </a>
+
+      <a href="{% url 'newpost' %}"class="navbar-item">
+        <i class="material-icons"></i>
+        NewPost
+      </a>
+
+      
+
+      <a class="navbar-item">
+        <i class="material-icons">face</i>
+        Profile
+      </a>
+
+
+
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          setting
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item">
+            change password
+          </a>
+          <a class="navbar-item">
+            contact
+          </a>
+          <a class="navbar-item">
+            report an issue
+          </a>
+          <hr class="navbar-divider">
+          <a href=" {% url 'authentication:signout' %}" class="navbar-item">
+            SignOut
+
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-primary">
+            <strong>Sign up</strong>
+          </a>
+          <a class="button is-light">
+            Log in
+          </a>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</nav>
+
+  {% block banner %}
+  {% endblock %}
+  <section class="section">
+    <div class="container">
+    {% block content %}
+    {% endblock %}
+
+    {% block pagination %}
+    {% endblock %}
+       
+    </div>
+  </section>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+{% autoescape off %}
+
+welcome to ldceclgnetwork
+
+hello {{name}}
+
+
+please confirm your email by clicking on the following linebreaks
+
+confirmation link: http://{{domain}}{% url 'authentication:activate' uidb64=uid token=token %}
+
+
+
+
+{% endautoescape %}
